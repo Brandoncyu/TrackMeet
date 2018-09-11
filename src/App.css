@@ -1,0 +1,30 @@
+#top {
+  vertical-align: middle;
+  background: url("./splash-image.jpg") no-repeat center;
+  background-size: cover;
+  background-blend-mode: lighten;
+}
+
+#topHalf {
+  height: 300px;
+}
+
+#bottomHalf {
+  height: 300px;
+}
+
+#bottomHalf p {
+  color: black;
+  font-size: 20px;
+  text-align: center;
+  background-color: white;
+  border-radius: 20px;
+  border-style: solid;
+  padding: 15px
+}
+
+#trackmeet {
+  font-size: 100px;
+  color: white;
+  text-shadow: 2px 2px black;
+}
