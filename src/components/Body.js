@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Forms from './Forms'
-import CardHolder from './CardHolder'
+import Forms from './Forms/Forms'
+import CardHolder from './Cards/CardHolder'
 
 class Body extends Component {
   constructor(props){
