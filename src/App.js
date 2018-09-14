@@ -82,11 +82,24 @@ class App extends Component {
     document.querySelector('#newInputArea').innerHTML = ''
   }
 
+  remove = (id) => {
+    let importedData = JSON.parse(localStorage.getItem('cards'))
+    importedData.splice(id, 1)
+    localStorage.setItem('cards', JSON.stringify(importedData))
+
+    this.setState({
+      createOn: false,
+      searchOn: false,
+      sortOn: false,
+      cards: importedData
+    })
+  }
+
   render() {
     return (
       <div>
         <Header />
-        <Body createOn={this.state.createOn} createToggle={this.createToggle} searchOn={this.state.searchOn} searchToggle={this.searchToggle} sortOn={this.state.sortOn} sortToggle={this.sortToggle} create={this.create} cards={this.state.cards}/>
+        <Body createOn={this.state.createOn} createToggle={this.createToggle} searchOn={this.state.searchOn} searchToggle={this.searchToggle} sortOn={this.state.sortOn} sortToggle={this.sortToggle} create={this.create} cards={this.state.cards} remove={this.remove}/>
       </div>
     );
   }
