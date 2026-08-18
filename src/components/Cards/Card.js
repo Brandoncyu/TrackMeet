@@ -7,7 +7,7 @@ import TextWhat from './TextWhat'
 const Card = ({firstName, lastName, where, when, what, index, remove}) => {
   return (
     <div key
-    ={index} className="card border-dark mb-4 mr-2">
+    ={index} className="card border border-dark mb-4 mr-2">
       <TextName firstName={firstName} lastName={lastName}/>
       <div className="card-body ">
         <TextWhere where={where}/>

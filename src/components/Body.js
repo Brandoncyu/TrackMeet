@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Forms from './Forms/Forms'
 import CardHolder from './Cards/CardHolder'
 
+//Wes sez name "Body" - "wrapper" or "main"
+
 class Body extends Component {
   constructor(props){
     super(props)

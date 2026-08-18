@@ -6,6 +6,7 @@ import './App.css';
 class App extends Component {
   constructor(){
     super()
+    // let importedData = JSON.parse(localStorage.getItem('cards')) || []
     let importedData = JSON.parse(localStorage.getItem('cards'))
     if (importedData == null) importedData = []
     this.state = {
@@ -16,11 +17,17 @@ class App extends Component {
     }
   }
 
-  createToggle = () => {
-    this.setState({
-      createOn: !this.state.createOn
-    })
+  toggleKey = (key) => {
+    return () => {
+      this.setState({ [key]: !this.state[key] })
+    }
   }
+
+  // createToggle = () => {
+  //   this.setState({
+  //     createOn: !this.state.createOn
+  //   })
+  // }
 
   searchToggle = () => {
     this.setState({
@@ -33,6 +40,17 @@ class App extends Component {
       sortOn: !this.state.sortOn
     })
   }
+
+  // createRefactor = (importedData) => {
+  //   const newState = {
+  //     createOn: false,
+  //     searchOn: false,
+  //     sortOn: false,
+  //     cards: importedData
+  //   }
+  //
+  //   this.setState(newState)
+  // }
 
   create = event => {
     event.preventDefault()
@@ -99,7 +117,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Body createOn={this.state.createOn} createToggle={this.createToggle} searchOn={this.state.searchOn} searchToggle={this.searchToggle} sortOn={this.state.sortOn} sortToggle={this.sortToggle} create={this.create} cards={this.state.cards} remove={this.remove}/>
+        <Body createOn={this.state.createOn} createToggle={this.toggleKey('createOn')} searchOn={this.state.searchOn} searchToggle={this.searchToggle} sortOn={this.state.sortOn} sortToggle={this.sortToggle} create={this.create} cards={this.state.cards} remove={this.remove}/>
       </div>
     );
   }
